@@ -1,0 +1,70 @@
+<style>
+  .card_cont{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 80%;
+  }
+  .card{
+    background-color: #f3f3f3;
+    width: 45%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .card:hover{
+    box-shadow: 0 0 10px;
+  }
+  .approve{
+    text-decoration: none;
+    color: white;
+    background-color:black;
+    border: 2px solid;
+    padding: 5px;
+    margin: 10px 0;
+    transition: .3s;
+    border: none;
+  }
+  .approve:hover{
+    background-color: transparent;
+    color:black;
+    box-shadow: 0 0 10px;
+  }
+  .footer {
+    position:relative;
+  }
+</style>
+
+{%extends 'base.html'%}
+{%block title%}
+    Wright Bank | Admin
+{%endblock%}
+{%block nav%}
+  <a href="{{url_for('log_out')}}">Logout</a>
+{%endblock%}
+{%block body%}
+  <div class="card_cont">
+    {%for account in accounts%}
+      <div class="card">
+        <h1>{{account[2] + ' ' + account[3]}}</h1>
+        <p>Username: {{account[1]}}</p>
+        <p>User number: {{account[0]}}</p>
+        <p>Address: {{account[5]}}</p>
+        <p>Phone Number: {{phone_format(account[6]|string)}}</p>
+        <p>Status: {{account[8]}}</p>
+        {%for detail in details%}
+          {%if detail[1] == account[0]%}
+            <p>Account Number: {{detail[0]}}</p>
+            <p>Balance: ${{ '{:,.2f}'.format(detail[2]) }}</p>
+          {%endif%}
+        {%endfor%}
+        {%if account[8] == 'PEN'%}
+          <a class="approve" href="{{url_for('approve_user',user_no=account[0])}}">Approve User</a>
+        {%endif%}
+      </div>
+    {%endfor%}
+  </div>
+{%endblock%}

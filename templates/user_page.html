@@ -1,0 +1,91 @@
+<style>
+    .user_cont{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .greet{
+        padding: 20px 0;
+        border-bottom: 2px outset;
+        background-color: #f3f3f3;
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        width: 40%;
+        height: 100%;
+    }
+    .details p{
+        margin: 20px 0;
+    }
+    .details h1{
+        font-size: 150%;
+    }
+    .details h2{
+        border-bottom: 2px outset;
+        padding-bottom: 15px;
+    }
+    .details a{
+        text-align: center;
+        height: 25%;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #f3f3f3;
+        border-radius: 50px;
+        text-decoration: none;
+        color: black;
+        display: flex;
+        font-size: 150%;
+        align-items: center;
+        justify-content: center;
+    }
+    .details a:hover{
+        box-shadow: 0 0 10px;
+    }
+    .user_info{
+        display: flex;
+        padding: 30px;
+        background-color: #f3f3f3;
+        flex-direction: column;
+        justify-content: space-around;
+        box-shadow: 0 0 10px;
+    }
+</style>
+{%extends 'base.html'%}
+{%block title%}
+    Wright Bank | My Account
+{%endblock%}
+{%block nav%}
+    <a href="{{url_for('log_out')}}">Log Out</a>
+{%endblock%}
+{%block body%}
+    <h1 class="greet">Welcome {{details[2] + ' ' + details[3]}}</h1>
+
+    <div class="user_cont">
+        <div class="details user_info">
+            <h2>Account details</h2>
+            <p>Account number: {{details[9]}}</p>
+            <p>Username: {{details[1]}}</p>
+            <p>Address: {{details[5]}}</p>
+            <p>Phone Number: {{phone_number}}</p>
+            <h1>Balance: ${{balance}}</h1>
+            {%if message%}
+                {%if message == 'Transfer unsuccessful.'%}
+                    <h3 style="color:red;">{{message}}</h3>
+                {%else%}
+                    <h3 style="color:green;">{{message}}</h3>
+                {%endif%}
+            {%endif%}
+        </div>
+
+        <div class="details">
+            <a href="{{url_for('show_deposit_form')}}">Deposit Money</a>
+            <a href="{{url_for('show_send_form')}}">Send Money</a>
+        </div>
+
+    </div>
+{%endblock%}

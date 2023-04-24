@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block title%}
+    Wright Bank | Send
+{%endblock%}
+{%block nav%}
+  <a href="{{url_for('show_user_page')}}">My Account</a>
+  <a href="{{url_for('log_out')}}">Log Out</a>
+{%endblock%}
+{%block body%}
+
+  <form action="" method="post">
+    {%if message%}
+      <p style="color:red;">{{message}}</p>
+    {%endif%}
+    <input style="font-size:80%;" class="input"type="text" name="search_user"placeholder="Username or Phone Number" id="">
+    <input class="input"type="number" step="0.01" name="amt_send"placeholder="Amount" id="">
+    <input type="submit" value="Send">
+  </form>
+{%endblock%}

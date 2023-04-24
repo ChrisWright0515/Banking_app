@@ -1,0 +1,40 @@
+<style>
+  .cancel_transfer{
+    text-decoration: none;
+    font-size: 100%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    border:none;
+    color: white;
+    background-color: black;
+    transition:.3s;
+    cursor: pointer;
+  }
+  .cancel_transfer:hover{
+    background-color: transparent;
+    color:black;
+    box-shadow: 0 0 10px;
+  }
+</style>
+{%extends 'base.html'%}
+{%block title%}
+    Wright Bank | Send
+{%endblock%}
+{%block nav%}
+  <a href="{{url_for('show_user_page')}}">My Account</a>
+  <a href="{{url_for('log_out')}}">Log Out</a>
+{%endblock%}
+{%block body%}
+
+  <form action="" method="post">
+    {%if message%}
+      <p style="color:red;text-align:center;">{{message}}</p>
+    {%endif%}
+    <p style="text-align:center; color:green;">Send ${{amt}} to {{recipient}}?</p>
+    <input class="input"type="number"  name="confirm_ssn"placeholder="Verify your SSN" id="">
+    <div style="display:flex;width:100%;justify-content:space-evenly;margin:10px 0;">
+      <input type="submit" value="Confirm">
+      <a style="text-align:center;" href="{{url_for('show_user_page')}}"class="cancel_transfer">Cancel Transfer</a>
+    </div>
+  </form>
+{%endblock%}

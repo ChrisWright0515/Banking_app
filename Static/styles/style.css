@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif ;
+}
+html{
+    font-size: 20px;
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+}
+form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+h1,h2,h3,h4,h5,p{
+    text-align:center;
+}
+
+
+
+
+
+
+/* Header*/
+header{
+    width: 100%;
+    min-height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(85, 37, 130);
+    padding: 10px;
+    position:relative;
+    z-index:999;
+
+}
+.nav{
+    display: flex;
+}
+.nav a{
+    text-decoration: none;
+    color: rgb(253, 185, 39);
+    margin-right: 20px;
+}
+.nav a:hover{
+    color:white;
+}
+
+form{
+    background-color: #f3f3f3;
+    width: 25%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5% auto;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 0 5px;
+    padding:10px;
+}
+form label{
+    text-align: center;
+}
+
+.pass-needs{
+    display: none;
+    color: #d3d3d3;
+    align-self: center;
+    text-align:center;
+}
+.pass-needs ul{
+    list-style-type: none ;
+}
+.pass-req{
+  font-size: 50%;
+
+}
+.pass-reqX{
+    color: red;
+    font-style: italic;
+}
+.pass-req-check{
+    color: green;
+}
+
+
+
+
+
+
+.option_cont{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    margin: auto;
+
+}
+.home_option{
+    background-color: #f3f3f3;
+    width: 45%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    margin: 2.5%;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration:none;
+    color:black;
+    min-height: 200px;
+    transition: .3s;
+    font-size: 150%;
+}
+.home_option ion-icon{
+    font-size:82px;
+    color: rgb(85, 37, 130);
+}
+.home_option ion-icon:hover{
+    color: rgb(253, 185, 39);
+}
+.home_option:hover{
+    box-shadow: 0 0 10px;
+}
+.input{
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #d3d3d3;
+        border-radius: 1px;
+        outline: none;
+        padding: 2px;
+        margin: 5px auto;
+        font-size:100%;
+        width:80%;
+    }
+   input[type=submit]{
+        font-size: 100%;
+        padding: 5px 10px;
+        border-radius: 50px;
+        border:none;
+        color: white;
+        background-color: black;
+        transition:.3s;
+        cursor: pointer;
+        margin-top: 10px;
+   }
+   input[type=submit]:hover{
+        background-color: transparent;
+        color:black;
+        box-shadow: 0 0 10px;
+
+   }
+   .deposit_form{
+    width:45%;
+   }
+
+
+
+
+
+/* FOOTER */
+footer{
+    width: 100%;
+    clear: both;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    color: white;
+    position:relative;
+}
+.links{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.footSocials{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footSocials ion-icon{
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 10px;
+}
+#fb:hover{
+    color: #1877F2;
+    transition: color .2s;
+}
+#twitter:hover{
+    color: #1DA1F2;
+    transition: color .2s;
+}
+#google:hover{
+    color: #DB4437;
+    transition: color .2s;
+}
+#ig:hover{
+    color: #C13584;
+    transition: color .2s;
+}
+.copyright p{
+    font-size: 75%;
+}
+
+
+@media screen and (max-width: 600px) {
+  div.option_cont {
+    flex-direction:column;
+    justify-content:space-evenly;
+  }
+  a.home_option{
+    width:75%;
+  }
+  div.copyright p {
+    font-size:50%;
+  }
+  form.register_form{
+    width:75%
+  }
+}

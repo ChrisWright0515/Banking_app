@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+{%block title%}
+    Wright Bank | Deposit
+{%endblock%}
+{%block nav%}
+<a href="{{url_for('show_user_page')}}">My Account</a>
+<a href="{{url_for('log_out')}}">Log Out</a>
+{%endblock%}
+{%block body%}
+    <form class="deposit_form" action="" method="post">
+        {%if message%}
+          {%if message == 'Deposit Successful'%}
+            <p style="color:green;">{{message}}</p>
+          {%else%}
+            <p style="color:red;">{{message}}</p>
+          {%endif%}
+        {%endif%}
+        <input class="input" type="number" placeholder="Card Number" name="card_no" id="">
+        <input type="month" name="exp_date"placeholder="Expiration Date" id="">
+        <input class="input" type="number"placeholder="CCV" name="ccv" min="100" max="999" maxlength="3" id="">
+        <input class="input" type="number" name="amt"placeholder="Deposit Amount" step="0.01" id="">
+        <input type="submit" value="Deposit Money">
+    </form>
+{%endblock%}

@@ -1,0 +1,61 @@
+<style>
+    .register_cont{
+        display: flex;
+    }
+    .register_form{
+        width:45%;
+    }
+    .footer{
+        position:relative;
+        bottom:none;
+    }
+</style>
+{%extends 'base.html'%}
+{%block title%}
+    Wright Bank | Register
+{%endblock%}
+{%block body%}
+
+<form class="register_form" action="" method="post">
+    {%if message%}
+        {%if message == 'Account added. Please wait to be approved to log in.'%}
+            <p style="color:green;"><b>{{message}}</b></p>
+        {%else%}
+            <p style="color:red;"><em>{{message}}</em></p>
+        {%endif%}
+    {%endif%}
+  <input class="input" type="text" placeholder="Enter Username" name="username" id="">
+  <input class="input" type="text" placeholder="Enter First Name" name="first_name" id="">
+  <input class="input"type="text"  placeholder="Enter Last Name"name="last_name" id="">
+  <input class="input"type="number" placeholder="Enter Social Security Number" name="ssn" id="">
+  <input class="input"type="text" placeholder="Enter Address" name="address" id="">
+  <input class="input" type="tel" name="phone_number"placeholder="Enter Phone Number" id="">
+    <div class="pass-needs" id="pass-needs">
+        <p> Your pasword must contain...</p>
+        <ul class="group">
+            <li class="pass-req pass-reqX upper-req">
+                <ion-icon class="close-outline upper-req" name="close-outline"></ion-icon> 1 Uppercase letter
+            </li>
+            <li class="pass-req pass-reqX lower-req">
+                <ion-icon class="close-outline" name="close-outline"></ion-icon> 1 Lowercase letter
+            </li>
+            <li class="pass-req pass-reqX length-req">
+                <ion-icon class="close-outline" name="close-outline"></ion-icon> At least 8 Characters
+            </li>
+            <li class="pass-req pass-reqX num-req">
+                <ion-icon class="close-outline" name="close-outline"></ion-icon> 1 number
+            </li>
+            <li class="pass-req pass-reqX spec-req">
+                <ion-icon class="close-outline" name="close-outline"></ion-icon> 1 special character
+            </li>
+        </ul>
+    </div>
+  <input class="sup_password input"type="password"  placeholder="Enter Password"name="password" id="sup_password">
+
+    <input type="submit" value="Create Account">
+</form>
+
+{%endblock%}
+{%block script%}
+    <script src="../static/script/main.js"></script>
+{%endblock%}
